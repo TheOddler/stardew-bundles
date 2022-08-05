@@ -1,0 +1,23 @@
+<div class="item" title="{{ include.name }}{% if include.info %} ({{ include.info }}){% endif %}">
+    <label>
+        <input type="checkbox">
+        {%- if include.silver -%}
+        <span class="quality_icon_wrapper">
+            <img src='images/24px-Silver_Quality_Icon.png'>
+        </span>
+        {%- endif -%}
+        {%- if include.gold -%}
+        <span class="quality_icon_wrapper">
+            <img src='images/24px-Gold_Quality_Icon.png'>
+        </span>
+        {%- endif -%}
+        <img src='{{ include.name | img_name_to_path }}' height="24" class="line-through">
+        {%- comment -%} remove whitespace {%- endcomment -%}
+        <span class="name line-through">{{- include.name -}}</span>
+        {%- comment -%} remove whitespace {%- endcomment -%}
+        <span class="count line-through">{%- if include.count -%}({{ include.count }}){%- endif -%}</span>
+        {%- if include.info -%}
+        <span class="info line-through">({{- include.info -}})</span>
+        {%- endif -%}
+    </label>
+</div>

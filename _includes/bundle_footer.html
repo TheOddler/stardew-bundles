@@ -1,0 +1,18 @@
+{% assign reward_img_path = include.reward | img_name_to_path %}
+
+<div class="reward" title="{{ include.reward }}">
+    <img src="images/18px-Bundle_Reward.png">
+    <span>
+        {%- if include.complete_count -%}
+        Donate {{ include.complete_count }}:
+        {%- else -%}
+        Reward:
+        {%- endif -%}
+    </span>
+
+    <img src='{{ reward_img_path }}' height="24">
+    {%- comment -%} remove whitespace {%- endcomment -%}
+    <span class="name">&nbsp;{{- include.reward -}}&nbsp;</span>
+    {%- comment -%} remove whitespace {%- endcomment -%}
+    <span class="count">{%- if include.reward_count -%}({{ include.reward_count }}){%- endif -%}</span>
+</div>

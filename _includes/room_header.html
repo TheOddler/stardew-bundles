@@ -1,0 +1,34 @@
+<h2>
+    <img src="images/Bundle_Complete_Balloon.png">
+    <span>{{ include.name }}{% if include.reward %}: {{ include.reward }}{% endif %}</span>
+</h2>
+
+<div class="toggles no-print">
+    {% assign showBulkButtons = include.showBulkButtons | defaultAllowFalse true %}
+    {% assign showNameToggle = include.showNameToggle | defaultAllowFalse true %}
+    {% assign showInfoToggle = include.showInfoToggle %}
+
+    {% if showBulkButtons %}
+    <button onclick="setAllCheckboxes(true, '.item input[type=checkbox]', this.closest('.room'))">Check all</button>
+    <button onclick="setAllCheckboxes(false, '.item input[type=checkbox]', this.closest('.room'))">Uncheck all</button>
+    {% endif %}
+
+    {% if showNameToggle %}
+    <label>
+        <input type="checkbox" data-room-class-disabled="hide-names" checked class="name-toggle">
+        Show names
+    </label>
+    {% endif %}
+
+    {% if showInfoToggle %}
+    <label>
+        <input type="checkbox" data-room-class-disabled="hide-info" checked class="info-toggle">
+        Show info
+    </label>
+    {% endif %}
+
+    <label>
+        <input type="checkbox" data-room-class-disabled="no-print hide-bundles" checked class="visibility-toggle">
+        Visible
+    </label>
+</div>

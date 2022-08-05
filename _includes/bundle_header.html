@@ -1,0 +1,16 @@
+{%- assign img_path = include.name | img_name_to_path -%}
+
+{%- assign name = include.name -%}
+
+{%- assign max = 21 -%}
+
+{%- if name.size > max -%}
+{%- assign name = name | replace: "Bundle", "Bndl" -%}
+{%- endif -%}
+
+{%- assign name = name | truncate: max, "" -%}
+
+<div class="header">
+    <img src="images/32px-Bundle_{{ include.color | capitalize }}.png"><img src='{{ img_path }}' height="32">
+    {{ name }}
+</div>
